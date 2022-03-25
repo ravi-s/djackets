@@ -48,20 +48,26 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-const showMobileMenu = ref(false);
-console.log(showMobileMenu);
-</script>
+// <script setup>
+//   import { ref } from "vue";
+//   const showMobileMenu = ref(false);
+//   /*  console.log(showMobileMenu); */
+// </script>
 
-// <script>
-// export default {
-//   data() {
-//     return {
-//       showMobileMenu: false,
-//     }
-//   }
-// }
+<script>
+export default {
+  data() {
+    return {
+      showMobileMenu: false,
+      cart: {
+        items: []
+      }
+    }
+  },
+  beforeCreate() {
+    this.$store.commit('initializeStore')
+  }
+}
 //
 </script>
 

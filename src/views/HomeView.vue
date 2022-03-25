@@ -22,8 +22,10 @@
         </figure>
         <h3 class="is-size-4">{{ product.name }}</h3>
         <p class="is-size-6 has-text-grey">${{ product.price }}</p>
-
-        View Details
+        <router-link v-bind:to="{path: product.get_absolute_url}" class="button is-dark mt4">
+          
+          View Details
+        </router-link>
       </div>
     </div>
   </div>
@@ -47,12 +49,13 @@ export default {
   },
   methods: {
     getLatestProducts() {
-      axios.get("/api/v1/latest-products/")
-      .then(response => {
-          this.latestProducts = response.data
+      axios
+        .get("/api/v1/latest-products/")
+        .then((response) => {
+          this.latestProducts = response.data;
         })
-        .catch(error => {
-          console.log(error)
+        .catch((error) => {
+          console.log(error);
         });
     },
   },
@@ -61,9 +64,9 @@ export default {
 </script>
 
 <style scoped>
-  .image {
-    margin-top: -1.25rem;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-  }
+.image {
+  margin-top: -1.25rem;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+}
 </style>
