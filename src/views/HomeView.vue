@@ -48,8 +48,10 @@ export default {
     document.title = "Home | Djackets";
   },
   methods: {
-    getLatestProducts() {
-      axios
+   async getLatestProducts() {
+
+     this.$store.commit('setIsLoading', true)
+      await axios
         .get("/api/v1/latest-products/")
         .then((response) => {
           this.latestProducts = response.data;
@@ -57,6 +59,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+        this.$store.commit('setIsLoading', false)
     },
   },
   components: {},
