@@ -1,4 +1,4 @@
-# djackets_vue
+# djackets
 
 ## Project setup
 ```
