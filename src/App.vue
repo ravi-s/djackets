@@ -45,19 +45,27 @@
             </form>
           </div>
         </div>
-        <div class="navbar-end">
-          <router-link to="/Summer" class="navbar-item">Summer</router-link>
-          <router-link to="/Winter" class="navbar-item">Winter</router-link>
-          <div class="navbar-item">
-            <div class="buttons">
+      </div>
+      <div class="navbar-end">
+        <router-link to="/Summer" class="navbar-item">Summer</router-link>
+        <router-link to="/Winter" class="navbar-item">Winter</router-link>
+        <div class="navbar-item">
+          <div class="buttons">
+            <template v-if="$store.state.isAuthenticated">
+              <router-link to="/my-account" class="button is-light"
+                >My account</router-link
+              >
+            </template>
+
+            <template v-else>
               <router-link to="/log-in" class="button is-light"
                 >Log in</router-link
               >
-              <router-link to="/cart" class="button is-success">
-                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
-                <span>Cart ({{ cartTotalLength }})</span>
-              </router-link>
-            </div>
+            </template>
+            <router-link to="/cart" class="button is-success">
+              <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+              <span>Cart ({{ cartTotalLength }})</span>
+            </router-link>
           </div>
         </div>
       </div>
